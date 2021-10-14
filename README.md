@@ -1,13 +1,15 @@
 # Tone Framework Android Documentation 
 This repository contains an example of framework usage in android for Kotlin.
-## Importing Library into Project 
-In root build.gradle
+## Importing Library into Project  
 
+Add Maven Jitpack.io
+
+In root build.gradle 
 ```css
 	allprojects {
 		repositories {
 			...
-			maven { url 'https://jitpack.io' }  //add jitpack.io
+			maven { url 'https://jitpack.io' }
 		}
 	}
 ```
@@ -17,8 +19,8 @@ dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)  
 	    repositories {  
 			google()  
-	        mavenCentral()  
-	        maven { url 'https://jitpack.io' }  //add jitpack.io 
+	        	mavenCentral()  
+	        	maven { url 'https://jitpack.io' }
 		}
  }
 ```
@@ -36,8 +38,9 @@ in App's AndroidManifest.xml add:
 <uses-permission android:name="android.permission.RECORD_AUDIO" />  
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />  
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
+<!-- replace icon and theme to avoid manifest merger issues-->
 <application tools:replace="android:icon,android:theme">
+	<!-- Declare Service-->
 	<service  
 	  android:name="com.strutbebetter.tonelisten.core.ToneServiceManager"  
 	  android:enabled="true"  
@@ -101,11 +104,7 @@ ToneUIEventListener on Main Activity  and override onToneReceived method
 Kotlin:
 ```kotlin
 class MainActivity : AppCompatActivity(), ToneUIEventListener {
-	// Handle ToneTags yourself
-	override fun onToneReceived(p0: ToneModel?) {  
-	    //TODO Handle Tone  
-	}
-	//or let the framework handle the Tone Automatically
+	//Handle tones received yourself or let the framework handle the Tone Automatically
 	override fun onToneReceived(toneModel: ToneModel?) {  
 	    toneFramework!!.handleToneResponse(toneModel, this@MainActivity);  
 	}
