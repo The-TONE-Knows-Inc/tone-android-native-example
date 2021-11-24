@@ -120,6 +120,22 @@ public  class  MainActivity  extends  AppCompatActivity  implements  ToneUIEvent
 	}
 }
 ```
+To turn notifications off when the app is open and vice-versa on MainActivity add:
+```java
+    @Override
+    protected void onResume() {
+        toneFramework.turnNotificationsOn(false);
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        toneFramework.turnNotificationsOn(true);
+        super.onPause();
+
+    }
+```
+
 ToneModel.class
 ```java
 class  ToneModel {
