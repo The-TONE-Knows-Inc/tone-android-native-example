@@ -28,7 +28,7 @@ in app module build.gradle
 Latest version on Jitpack: [![](https://jitpack.io/v/The-TONE-Knows-Inc/framework-core-tone-android.svg)](https://jitpack.io/#The-TONE-Knows-Inc/framework-core-tone-android)
 ```css
 dependencies {
-	        implementation 'com.github.The-TONE-Knows-Inc:framework-core-tone-android:v0.0.4'
+	        implementation 'com.github.The-TONE-Knows-Inc:framework-core-tone-android:v0.0.6'
 	}
 ```
 in App's AndroidManifest.xml add:
